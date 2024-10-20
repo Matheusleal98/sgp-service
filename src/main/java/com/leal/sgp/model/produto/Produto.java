@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "PRODUTO")
+@Table(name = "PRODUTOS")
 public class Produto {
 
     @Id

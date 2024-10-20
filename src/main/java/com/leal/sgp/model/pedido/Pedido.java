@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "PEDIDO")
+@Table(name = "PEDIDOS")
 public class Pedido {
 
     @Id
