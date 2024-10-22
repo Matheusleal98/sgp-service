@@ -10,26 +10,26 @@ import java.util.UUID;
 public class Restaurante {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_RESTAURANTE")
     private UUID seq;
 
     @Column(name = "NOME_RESTAURANTE")
     private String nome;
 
-    @Column(name = "URL_IMAGEM_RESTAURANTE")
+    @Column(name = "IMG_URL_RESTAURANTE")
     private String imagemUrl;
 
-    @Column(name = "VLR_ENTREGA_RESTAURANTE")
+    @Column(name = "VL_ENTREGA")
     private BigDecimal valorEntrega;
 
-    @Column(name = "MIN_ENTREGA_RESTAURANTE")
+    @Column(name = "MIN_ENTREGA")
     private Integer tempoEntregaMin;
 
-    @Column(name = "AVALIACAO_RESTAURANTE")
+    @Column(name = "AVALIACAO")
     private double avaliacao;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_CATEGORIA", referencedColumnName = "SEQ")
+    @JoinColumn(name = "SEQ_CATEGORIA")
     private Categoria categoria;
 
     public UUID getSeq() {

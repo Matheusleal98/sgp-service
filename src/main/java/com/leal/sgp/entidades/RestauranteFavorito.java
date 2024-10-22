@@ -9,16 +9,16 @@ import java.util.UUID;
 public class RestauranteFavorito {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_RESTAURANTE_FAVORITO")
     private UUID seq;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_USUARIO", referencedColumnName = "SEQ")
-    private Usuario seqUsuario;
+    @JoinColumn(name = "SEQ_USUARIO")
+    private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_RESTAURANTE", referencedColumnName = "SEQ")
-    private Restaurante seqRestaurante;
+    @JoinColumn(name = "SEQ_RESTAURANTE")
+    private Restaurante restaurante;
 
     public UUID getSeq() {
         return seq;
@@ -28,19 +28,19 @@ public class RestauranteFavorito {
         this.seq = seq;
     }
 
-    public Usuario getSeqUsuario() {
-        return seqUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setSeqUsuario(Usuario seqUsuario) {
-        this.seqUsuario = seqUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public Restaurante getSeqRestaurante() {
-        return seqRestaurante;
+    public Restaurante getRestaurante() {
+        return restaurante;
     }
 
-    public void setSeqRestaurante(Restaurante seqRestaurante) {
-        this.seqRestaurante = seqRestaurante;
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
     }
 }

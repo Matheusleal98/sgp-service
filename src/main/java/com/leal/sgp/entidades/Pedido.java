@@ -11,30 +11,30 @@ import java.util.UUID;
 public class Pedido {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_PEDIDO")
     private UUID seq;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_USUARIO", referencedColumnName = "SEQ")
+    @JoinColumn(name = "SEQ_USUARIO", referencedColumnName = "SEQ_USUARIO")
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_RESTAURANTE", referencedColumnName = "SEQ")
+    @JoinColumn(name = "SEQ_RESTAURANTE", referencedColumnName = "SEQ_RESTAURANTE")
     private Restaurante restaurante;
 
-    @Column(name = "VLR_TAXA_ENTREGA")
-    private BigDecimal taxaEntrega;
+    @Column(name = "VL_ENTREGA")
+    private BigDecimal taxaDeEntrega;
 
     @Column(name = "DTHR_ENTREGA")
-    private Integer tempoEntrega;
+    private Integer tempoDeEntrega;
 
-    @Column(name = "VLR_SUBTOTAL_PEDIDO")
+    @Column(name = "VL_SUBTOTAL")
     private BigDecimal subtotalPreco;
 
-    @Column(name = "VLR_TOTAL_PEDIDO")
+    @Column(name = "VL_TOTAL")
     private BigDecimal totalPreco;
 
-    @Column(name = "VLR_DESCONTO")
+    @Column(name = "VL_DESCONTO")
     private BigDecimal totalDesconto;
 
     @Column(name = "STATUS_PEDIDO")
@@ -68,20 +68,20 @@ public class Pedido {
         this.restaurante = restaurante;
     }
 
-    public BigDecimal getTaxaEntrega() {
-        return taxaEntrega;
+    public BigDecimal getTaxaDeEntrega() {
+        return taxaDeEntrega;
     }
 
-    public void setTaxaEntrega(BigDecimal taxaEntrega) {
-        this.taxaEntrega = taxaEntrega;
+    public void setTaxaDeEntrega(BigDecimal taxaDeEntrega) {
+        this.taxaDeEntrega = taxaDeEntrega;
     }
 
-    public Integer getTempoEntrega() {
-        return tempoEntrega;
+    public Integer getTempoDeEntrega() {
+        return tempoDeEntrega;
     }
 
-    public void setTempoEntrega(Integer tempoEntrega) {
-        this.tempoEntrega = tempoEntrega;
+    public void setTempoDeEntrega(Integer tempoDeEntrega) {
+        this.tempoDeEntrega = tempoDeEntrega;
     }
 
     public BigDecimal getSubtotalPreco() {

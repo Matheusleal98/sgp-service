@@ -10,22 +10,19 @@ import java.util.UUID;
 public class PedidoProduto {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_PEDIDO_PRODUTO")
     private UUID seq;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_PEDIDO", referencedColumnName = "SEQ")
+    @JoinColumn(name = "SEQ_PEDIDO", referencedColumnName = "SEQ_PEDIDO")
     private Pedido pedido;
 
     @ManyToOne
-    @JoinColumn(name = "SEQ_PRODUTO", referencedColumnName = "SEQ")
+    @JoinColumn(name = "SEQ_PRODUTO", referencedColumnName = "SEQ_PRODUTO")
     private Produto produto;
 
     @Column(name = "QTD_PRODUTO")
     private Integer quantidade;
-
-    @Column(name = "VLR_UNITARIO")
-    private BigDecimal precoUnitario;
 
     public UUID getSeq() {
         return seq;
@@ -35,8 +32,8 @@ public class PedidoProduto {
         this.seq = seq;
     }
 
-    public Pedido getPedido(Pedido pedido) {
-        return this.pedido;
+    public Pedido getPedido() {
+        return pedido;
     }
 
     public void setPedido(Pedido pedido) {
@@ -57,13 +54,5 @@ public class PedidoProduto {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public BigDecimal getPrecoUnitario() {
-        return precoUnitario;
-    }
-
-    public void setPrecoUnitario(BigDecimal precoUnitario) {
-        this.precoUnitario = precoUnitario;
     }
 }

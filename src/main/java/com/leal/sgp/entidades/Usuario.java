@@ -12,13 +12,13 @@ import java.util.UUID;
 public class Usuario {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_USUARIO")
     private UUID seq;
 
     @Column(name = "NOME_USUARIO")
     private String nome;
 
-    @Column(name = "URL_IMG_USUARIO")
+    @Column(name = "IMG_URL_USUARIO")
     private String imagemUrl;
 
     public UUID getSeq() {

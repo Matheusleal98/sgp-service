@@ -1,9 +1,6 @@
 package com.leal.sgp.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -13,7 +10,7 @@ import java.util.UUID;
 public class Produto {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_PRODUTO")
     private UUID seq;
 
     @Column(name = "NOME_PRODUTO")
@@ -22,14 +19,18 @@ public class Produto {
     @Column(name = "DESC_PRODUTO")
     private String descricao;
 
-    @Column(name = "URL_IMAGEM_PRODUTO")
+    @Column(name = "IMG_URL_PRODUTO")
     private String imagemUrl;
 
-    @Column(name = "VLR_PRECO_PRODUTO")
+    @Column(name = "PRECO")
     private BigDecimal preco;
 
-    @Column(name = "DESCONTO_PRODUTO")
+    @Column(name = "DESCONTO")
     private int desconto;
+
+    @ManyToOne
+    @JoinColumn(name = "SEQ_RESTAURANTE")
+    private Restaurante restaurante;
 
     public UUID getSeq() {
         return seq;
@@ -77,5 +78,13 @@ public class Produto {
 
     public void setDesconto(int desconto) {
         this.desconto = desconto;
+    }
+
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
     }
 }

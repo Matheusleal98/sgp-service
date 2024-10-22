@@ -12,13 +12,13 @@ import java.util.UUID;
 public class Categoria {
 
     @Id
-    @Column(name = "SEQ")
+    @Column(name = "SEQ_CATEGORIA")
     private UUID seq;
 
     @Column(name = "NOME_CATEGORIA")
     private String nome;
 
-    @Column(name = "URL_IMGAGEM_CATEGORIA")
+    @Column(name = "IMG_URL_CATEGORIA")
     private String imagemUrl;
 
     public UUID getSeq() {
