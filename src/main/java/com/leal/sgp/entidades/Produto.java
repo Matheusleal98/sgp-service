@@ -1,4 +1,4 @@
-package com.leal.sgp.model.produto;
+package com.leal.sgp.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,35 +13,30 @@ import java.util.UUID;
 public class Produto {
 
     @Id
-    private UUID id;
-    @Column(name = "NOME")
+    @Column(name = "SEQ")
+    private UUID seq;
+
+    @Column(name = "NOME_PRODUTO")
     private String nome;
-    @Column(name = "DESCRICAO")
+
+    @Column(name = "DESC_PRODUTO")
     private String descricao;
-    @Column(name = "IMG_URL")
+
+    @Column(name = "URL_IMAGEM_PRODUTO")
     private String imagemUrl;
-    @Column(name = "PRECO", precision = 10, scale = 2)
+
+    @Column(name = "VLR_PRECO_PRODUTO")
     private BigDecimal preco;
-    @Column(name = "DESCONTO")
+
+    @Column(name = "DESCONTO_PRODUTO")
     private int desconto;
 
-    public Produto(){}
-
-    public Produto(String nome, String descricao, String imagemUrl,
-                   BigDecimal preco, int desconto) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.imagemUrl = imagemUrl;
-        this.preco = preco;
-        this.desconto = desconto;
+    public UUID getSeq() {
+        return seq;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
+    public void setSeq(UUID seq) {
+        this.seq = seq;
     }
 
     public String getNome() {

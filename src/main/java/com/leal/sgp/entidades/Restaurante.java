@@ -1,6 +1,5 @@
-package com.leal.sgp.model.restaurante;
+package com.leal.sgp.entidades;
 
-import com.leal.sgp.model.categoria.Categoria;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -11,30 +10,34 @@ import java.util.UUID;
 public class Restaurante {
 
     @Id
-    private UUID id;
-    @Column(name = "NOME")
+    @Column(name = "SEQ")
+    private UUID seq;
+
+    @Column(name = "NOME_RESTAURANTE")
     private String nome;
-    @Column(name = "IMG_URL")
+
+    @Column(name = "URL_IMAGEM_RESTAURANTE")
     private String imagemUrl;
-    @Column(name = "VLR_ENTREGA")
+
+    @Column(name = "VLR_ENTREGA_RESTAURANTE")
     private BigDecimal valorEntrega;
-    @Column(name = "MIN_ENTREGA")
+
+    @Column(name = "MIN_ENTREGA_RESTAURANTE")
     private Integer tempoEntregaMin;
-    @Column(name = "AVALIACAO")
+
+    @Column(name = "AVALIACAO_RESTAURANTE")
     private double avaliacao;
 
     @ManyToOne
-    @JoinColumn(name = "categoria_id")
+    @JoinColumn(name = "SEQ_CATEGORIA", referencedColumnName = "SEQ")
     private Categoria categoria;
 
-    public Restaurante(){}
-
-    public UUID getId() {
-        return id;
+    public UUID getSeq() {
+        return seq;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setSeq(UUID seq) {
+        this.seq = seq;
     }
 
     public String getNome() {
@@ -69,19 +72,19 @@ public class Restaurante {
         this.tempoEntregaMin = tempoEntregaMin;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
     public double getAvaliacao() {
         return avaliacao;
     }
 
     public void setAvaliacao(double avaliacao) {
         this.avaliacao = avaliacao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

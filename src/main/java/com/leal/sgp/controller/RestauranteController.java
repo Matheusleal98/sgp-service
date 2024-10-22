@@ -1,6 +1,6 @@
 package com.leal.sgp.controller;
 
-import com.leal.sgp.model.restaurante.Restaurante;
+import com.leal.sgp.entidades.Restaurante;
 import com.leal.sgp.services.RestauranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,13 +20,13 @@ public class RestauranteController {
     @Autowired
     private RestauranteService restauranteService;
 
-    @GetMapping("/categoria/{categoriaId}")
-    public ResponseEntity<?> buscarRestaurantesPorCategoria(@PathVariable UUID categoriaId) {
+    @GetMapping("/categoria/{seqCategoria}")
+    public ResponseEntity<?> buscarRestaurantesPorCategoria(@PathVariable UUID seqCategoria) {
         try {
-            List<Restaurante> restaurantes = this.restauranteService.listarRestaurantesPorCategoria(categoriaId);
+            List<Restaurante> restaurantes = this.restauranteService.listarRestaurantesPorCategoria(seqCategoria);
 
             if (restaurantes.isEmpty()) {
-                return ResponseEntity.badRequest().body("Nenhum restaurante encontrado para a categoria: " + categoriaId);
+                return ResponseEntity.badRequest().body("Nenhum restaurante encontrado para a categoria: " + seqCategoria);
             }
 
             return ResponseEntity.ok(restaurantes);

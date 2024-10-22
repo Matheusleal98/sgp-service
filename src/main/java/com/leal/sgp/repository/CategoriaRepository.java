@@ -1,6 +1,6 @@
 package com.leal.sgp.repository;
 
-import com.leal.sgp.model.categoria.Categoria;
+import com.leal.sgp.entidades.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

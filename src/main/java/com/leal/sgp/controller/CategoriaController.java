@@ -1,6 +1,6 @@
 package com.leal.sgp.controller;
 
-import com.leal.sgp.model.categoria.Categoria;
+import com.leal.sgp.entidades.Categoria;
 import com.leal.sgp.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,15 +34,15 @@ public class CategoriaController {
         return new ResponseEntity<>(categorias, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> buscarPorId(@PathVariable UUID id) {
-        Categoria categoriaEncontrada = this.categoriaService.buscarPorId(id);
+    @GetMapping("/{seq}")
+    public ResponseEntity<?> buscarPorId(@PathVariable UUID seq) {
+        Categoria categoriaEncontrada = this.categoriaService.buscarPorId(seq);
 
         /**
         * verifica se possui e retorna à categoria ou NULL
         */
         if (categoriaEncontrada == null) {
-            return new ResponseEntity<>("Categoria não encontrada com id " + id, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Categoria não encontrada com id " + seq, HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(categoriaEncontrada, HttpStatus.OK);
