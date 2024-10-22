@@ -35,8 +35,8 @@ public class PedidoProduto {
         this.seq = seq;
     }
 
-    public Pedido getPedido() {
-        return pedido;
+    public Pedido getPedido(Pedido pedido) {
+        return this.pedido;
     }
 
     public void setPedido(Pedido pedido) {

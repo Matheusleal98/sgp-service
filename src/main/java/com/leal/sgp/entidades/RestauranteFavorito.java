@@ -14,11 +14,11 @@ public class RestauranteFavorito {
 
     @ManyToOne
     @JoinColumn(name = "SEQ_USUARIO", referencedColumnName = "SEQ")
-    private Usuario usuario;
+    private Usuario seqUsuario;
 
     @ManyToOne
     @JoinColumn(name = "SEQ_RESTAURANTE", referencedColumnName = "SEQ")
-    private Restaurante restaurante;
+    private Restaurante seqRestaurante;
 
     public UUID getSeq() {
         return seq;
@@ -28,19 +28,19 @@ public class RestauranteFavorito {
         this.seq = seq;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getSeqUsuario() {
+        return seqUsuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setSeqUsuario(Usuario seqUsuario) {
+        this.seqUsuario = seqUsuario;
     }
 
-    public Restaurante getRestaurante() {
-        return restaurante;
+    public Restaurante getSeqRestaurante() {
+        return seqRestaurante;
     }
 
-    public void setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
+    public void setSeqRestaurante(Restaurante seqRestaurante) {
+        this.seqRestaurante = seqRestaurante;
     }
 }
