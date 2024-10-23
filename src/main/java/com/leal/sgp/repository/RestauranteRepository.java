@@ -11,6 +11,9 @@ import java.util.UUID;
 @Repository
 public interface RestauranteRepository extends JpaRepository<Restaurante, UUID> {
 
-    @Query("SELECT r FROM Restaurante r WHERE r.categoria.id = :categoriaId")
-    List<Restaurante> findAllByCategoria(UUID categoriaId);
+    @Query("SELECT r FROM Restaurante r WHERE r.categoria.seq = :categoriaSeq")
+    List<Restaurante> findAllByCategoria(UUID categoriaSeq);
+
+    @Query("SELECT r FROM Restaurante r WHERE r.categoria.seq = :categoriaSeq")
+    List<Restaurante> findByRestaurantesByCategoria(UUID categoriaSeq);
 }

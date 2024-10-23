@@ -10,7 +10,7 @@ import java.util.UUID;
 @Repository
 public interface RestauranteFavoritoRepository extends JpaRepository<RestauranteFavorito, UUID> {
 
-    List<RestauranteFavorito> findBySeqUsuario(UUID seqUsuario);
+    List<RestauranteFavorito> findByUsuario_Seq(UUID usuario);
 
-    boolean existsBySeqUsuarioAndSeqRestaurante(UUID seqUsuario, UUID seqRestaurante);
+    boolean existsByUsuario_SeqAndRestaurante_Seq(UUID usuario, UUID restaurante);
 }

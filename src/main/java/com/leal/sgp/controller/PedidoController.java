@@ -16,9 +16,9 @@ public class PedidoController {
     @Autowired
     private PedidoService pedidoService;
 
-    @PostMapping
-    public ResponseEntity<Pedido> criarPedido(@RequestParam UUID usuario, @RequestBody List<UUID> produtos, @RequestBody List<Integer> quantidades) {
-        Pedido pedido = pedidoService.criarPedido(usuario,produtos,quantidades);
-        return ResponseEntity.ok(pedido);
-    }
+//    @PostMapping
+//    public ResponseEntity<Pedido> criarPedido(@RequestParam UUID usuario, @RequestBody List<UUID> produtos, @RequestBody List<Integer> quantidades) {
+//        Pedido pedido = pedidoService.criarPedido(usuario,produtos,quantidades);
+//        return ResponseEntity.ok(pedido);
+//    }
 }

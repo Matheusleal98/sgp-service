@@ -26,31 +26,31 @@ public class PedidoService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public Pedido criarPedido(UUID seqUsuario, List<UUID> seqProdutos, List<Integer> quantidades) {
-        Pedido pedido = new Pedido();
-        Usuario usuarioPedido = usuarioRepository.findById(seqUsuario)
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado."));
-
-        pedido.setUsuario(usuarioPedido);
-
-        List<PedidoProduto> pedidoProdutos = new ArrayList<>();
-        for (int i = 0; i < seqProdutos.size(); i++) {
-            UUID seqProduto = seqProdutos.get(i);
-            Integer quantidade = quantidades.get(i);
-
-            Produto produto = produtoRepository.findById(seqProduto)
-                    .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado."));
-
-            PedidoProduto pedidoProduto = new PedidoProduto();
-            pedidoProduto.getPedido(pedido);
-            pedidoProduto.setProduto(produto);
-            pedidoProduto.setQuantidade(quantidade);
-            pedidoProduto.setPrecoUnitario(produto.getPreco());
-
-            pedidoProdutos.add(pedidoProduto);
-        }
-
-        pedidoRepository.save(pedido);
-        return pedido;
-    }
+//    public Pedido criarPedido(UUID seqUsuario, List<UUID> seqProdutos, List<Integer> quantidades) {
+//        Pedido pedido = new Pedido();
+//        Usuario usuarioPedido = usuarioRepository.findById(seqUsuario)
+//                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado."));
+//
+//        pedido.setUsuario(usuarioPedido);
+//
+//        List<PedidoProduto> pedidoProdutos = new ArrayList<>();
+//        for (int i = 0; i < seqProdutos.size(); i++) {
+//            UUID seqProduto = seqProdutos.get(i);
+//            Integer quantidade = quantidades.get(i);
+//
+//            Produto produto = produtoRepository.findById(seqProduto)
+//                    .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado."));
+//
+//            PedidoProduto pedidoProduto = new PedidoProduto();
+//            pedidoProduto.getPedido(pedido);
+//            pedidoProduto.setProduto(produto);
+//            pedidoProduto.setQuantidade(quantidade);
+//            pedidoProduto.setPrecoUnitario(produto.getPreco());
+//
+//            pedidoProdutos.add(pedidoProduto);
+//        }
+//
+//        pedidoRepository.save(pedido);
+//        return pedido;
+//    }
 }

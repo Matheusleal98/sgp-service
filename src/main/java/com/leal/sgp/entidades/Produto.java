@@ -32,6 +32,10 @@ public class Produto {
     @JoinColumn(name = "SEQ_RESTAURANTE")
     private Restaurante restaurante;
 
+    @ManyToOne
+    @JoinColumn(name = "SEQ_CATEGORIA")
+    private Categoria categoria;
+
     public UUID getSeq() {
         return seq;
     }
@@ -86,5 +90,13 @@ public class Produto {
 
     public void setRestaurante(Restaurante restaurante) {
         this.restaurante = restaurante;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

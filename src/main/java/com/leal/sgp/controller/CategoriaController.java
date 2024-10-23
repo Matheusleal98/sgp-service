@@ -1,5 +1,6 @@
 package com.leal.sgp.controller;
 
+import com.leal.sgp.dto.CategoriaResponseDTO;
 import com.leal.sgp.entidades.Categoria;
 import com.leal.sgp.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +37,13 @@ public class CategoriaController {
 
     @GetMapping("/{seq}")
     public ResponseEntity<?> buscarPorId(@PathVariable UUID seq) {
-        Categoria categoriaEncontrada = this.categoriaService.buscarPorId(seq);
-
-        /**
-        * verifica se possui e retorna à categoria ou NULL
-        */
-        if (categoriaEncontrada == null) {
-            return new ResponseEntity<>("Categoria não encontrada com id " + seq, HttpStatus.NOT_FOUND);
+        try {
+            CategoriaResponseDTO response = this.categoriaService.buscarPorId(seq);
+            return ResponseEntity.ok(response);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Houve um erro com o servidor.");
         }
-
-        return new ResponseEntity<>(categoriaEncontrada, HttpStatus.OK);
     }
 }
