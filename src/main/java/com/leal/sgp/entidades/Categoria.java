@@ -1,8 +1,10 @@
 package com.leal.sgp.entidades;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,27 +21,6 @@ public class Categoria {
     @Column(name = "IMG_URL_CATEGORIA")
     private String imagemUrl;
 
-    @Transient
-    private List<Produto> produtos;
-
-    @Transient
-    private List<Restaurante> restaurantes;
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public List<Restaurante> getRestaurantes() {
-        return restaurantes;
-    }
-
-    public void setRestaurantes(List<Restaurante> restaurantes) {
-        this.restaurantes = restaurantes;
-    }
 
     public UUID getSeq() {
         return seq;

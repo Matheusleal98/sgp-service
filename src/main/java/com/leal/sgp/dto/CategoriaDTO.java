@@ -6,18 +6,33 @@ import com.leal.sgp.entidades.Restaurante;
 import java.util.List;
 import java.util.UUID;
 
-public class CategoriaResponseDTO {
+public class CategoriaDTO {
 
     private UUID categoriaSeq;
     private String nomeCategoria;
+    private String imageUrl;
     private List<Produto> produtos;
     private List<Restaurante> restaurantes;
 
-    public CategoriaResponseDTO(UUID categoriaSeq, String nomeCategoria, List<Produto> produtos, List<Restaurante> restaurantes) {
+    public CategoriaDTO(UUID categoriaSeq, String nomeCategoria, List<Produto> produtos, List<Restaurante> restaurantes) {
         this.categoriaSeq = categoriaSeq;
         this.nomeCategoria = nomeCategoria;
         this.produtos = produtos;
         this.restaurantes = restaurantes;
+    }
+
+    public CategoriaDTO(UUID categoriaSeq, String nomeCategoria, String imageUrl){
+        this.categoriaSeq = categoriaSeq;
+        this.nomeCategoria = nomeCategoria;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public UUID getCategoriaSeq() {
