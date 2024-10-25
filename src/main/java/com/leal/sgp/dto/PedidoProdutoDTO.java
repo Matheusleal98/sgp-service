@@ -1,27 +1,15 @@
-package com.leal.sgp.entidades;
+package com.leal.sgp.dto;
 
-import jakarta.persistence.*;
+import com.leal.sgp.entidades.Pedido;
+import com.leal.sgp.entidades.Produto;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
-@Entity
-@Table(name = "PEDIDOS_PRODUTOS")
-public class PedidoProduto {
+public class PedidoProdutoDTO {
 
-    @Id
-    @Column(name = "SEQ_PEDIDO_PRODUTO")
     private UUID seq;
-
-    @ManyToOne
-    @JoinColumn(name = "SEQ_PEDIDO")
     private Pedido pedido;
-
-    @ManyToOne
-    @JoinColumn(name = "SEQ_PRODUTO")
     private Produto produto;
-
-    @Column(name = "QTD_PRODUTO")
     private Integer quantidade;
 
     public UUID getSeq() {
