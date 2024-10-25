@@ -1,6 +1,8 @@
 package com.leal.sgp.controller;
 
+import com.leal.sgp.dto.RestauranteDTO;
 import com.leal.sgp.entidades.Restaurante;
+import com.leal.sgp.exception.NotFoundException;
 import com.leal.sgp.services.RestauranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,20 +22,19 @@ public class RestauranteController {
     @Autowired
     private RestauranteService restauranteService;
 
-    @GetMapping("/categoria/{seqCategoria}")
-    public ResponseEntity<?> buscarRestaurantesPorCategoria(@PathVariable UUID seqCategoria) {
+    @GetMapping("/${restauranteSeq}")
+    public ResponseEntity<?> getRestaurante(@PathVariable UUID restauranteSeq) {
         try {
-            List<Restaurante> restaurantes = this.restauranteService.listarRestaurantesPorCategoria(seqCategoria);
-
-            if (restaurantes.isEmpty()) {
-                return ResponseEntity.badRequest().body("Nenhum restaurante encontrado para a categoria: " + seqCategoria);
-            }
-
-            return ResponseEntity.ok(restaurantes);
-        } catch (RuntimeException ex) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+            RestauranteDTO restaurante = this.restauranteService.getRestaurante(restauranteSeq);
+            return ResponseEntity.ok(restaurante);
+        } catch (NotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
+    @GetMapping()
+    public ResponseEntity<List<Restaurante>> listarRestauranteComAvaliacao() {
+        return (ResponseEntity<List<Restaurante>>) this.restauranteService.listarRestauranteComAvaliacao();
+    }
 
 }
