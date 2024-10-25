@@ -1,47 +1,23 @@
-package com.leal.sgp.entidades;
+package com.leal.sgp.dto;
 
-import jakarta.persistence.*;
+import com.leal.sgp.entidades.Restaurante;
+import com.leal.sgp.entidades.Usuario;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
-@Entity
-@Table(name = "PEDIDOS")
-public class Pedido {
+public class PedidoDTO {
 
-    @Id
-    @Column(name = "SEQ_PEDIDO")
     private UUID seq;
-
-    @ManyToOne
-    @JoinColumn(name = "SEQ_USUARIO")
     private Usuario usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "SEQ_RESTAURANTE")
     private Restaurante restaurante;
-
-    @Column(name = "VL_ENTREGA")
     private BigDecimal taxaDeEntrega;
-
-    @Column(name = "DTHR_ENTREGA")
     private Integer tempoDeEntrega;
-
-    @Column(name = "VL_SUBTOTAL")
     private BigDecimal subtotalPreco;
-
-    @Column(name = "VL_TOTAL")
     private BigDecimal totalPreco;
-
-    @Column(name = "VL_DESCONTO")
     private BigDecimal totalDesconto;
-
-    @Column(name = "STATUS_PEDIDO")
     private String status;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "DTHR_PEDIDO")
     private Date dataPedido;
 
     public UUID getSeq() {
