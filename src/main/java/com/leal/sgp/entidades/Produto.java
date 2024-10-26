@@ -19,7 +19,7 @@ public class Produto {
     @Column(name = "DESC_PRODUTO")
     private String descricao;
 
-    @Column(name = "IMG_URL_PRODUTO")
+    @Column(name = "IMAGEM_URL_PRODUTO")
     private String imagemUrl;
 
     @Column(name = "PRECO")

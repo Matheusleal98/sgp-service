@@ -18,7 +18,7 @@ public class Categoria {
     @Column(name = "NOME_CATEGORIA")
     private String nome;
 
-    @Column(name = "IMG_URL_CATEGORIA")
+    @Column(name = "IMAGEM_URL_CATEGORIA")
     private String imagemUrl;
 
 

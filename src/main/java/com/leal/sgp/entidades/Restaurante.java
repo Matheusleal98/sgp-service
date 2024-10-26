@@ -16,7 +16,7 @@ public class Restaurante {
     @Column(name = "NOME_RESTAURANTE")
     private String nome;
 
-    @Column(name = "IMG_URL_RESTAURANTE")
+    @Column(name = "IMAGEM_URL_RESTAURANTE")
     private String imagemUrl;
 
     @Column(name = "VL_ENTREGA")
