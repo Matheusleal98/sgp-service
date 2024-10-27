@@ -22,10 +22,10 @@ public class RestauranteController {
     @Autowired
     private RestauranteService restauranteService;
 
-    @GetMapping("/${restauranteSeq}")
-    public ResponseEntity<?> getRestaurante(@PathVariable UUID restauranteSeq) {
+    @GetMapping("/{seq}")
+    public ResponseEntity<?> getRestaurante(@PathVariable UUID seq) {
         try {
-            RestauranteDTO restaurante = this.restauranteService.getRestaurante(restauranteSeq);
+            RestauranteDTO restaurante = this.restauranteService.getRestaurante(seq);
             return ResponseEntity.ok(restaurante);
         } catch (NotFoundException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);

@@ -31,7 +31,7 @@ public class RestauranteService {
 
         List<Produto> produtos = produtoRepository.findByProdutosByCategoria(restaurante.getSeq());
 
-        RestauranteDTO restauranteDTO = new RestauranteDTO(restaurante.getSeq(),restaurante.getNome(),restaurante.getImagemUrl(),restaurante.getValorEntrega(),restaurante.getTempoEntregaMin(),restaurante.getAvaliacao(),restaurante.getCategoria(),produtos);
+        RestauranteDTO restauranteDTO = new RestauranteDTO(restaurante.getSeq(),restaurante.getNome(),restaurante.getImagemUrl(),restaurante.getValorEntrega(),restaurante.getTempoEntregaMin(),restaurante.getAvaliacao(),produtos);
 
         return restauranteDTO;
     }

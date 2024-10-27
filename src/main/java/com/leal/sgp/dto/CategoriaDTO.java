@@ -11,13 +11,12 @@ public class CategoriaDTO {
     private UUID categoriaSeq;
     private String nomeCategoria;
     private String imageUrl;
-    private List<Produto> produtos;
-    private List<Restaurante> restaurantes;
+    private List<RestauranteDTO> restaurantes;
 
-    public CategoriaDTO(UUID categoriaSeq, String nomeCategoria, List<Produto> produtos, List<Restaurante> restaurantes) {
+    public CategoriaDTO(UUID categoriaSeq, String nomeCategoria, String imageUrl, List<RestauranteDTO> restaurantes) {
         this.categoriaSeq = categoriaSeq;
         this.nomeCategoria = nomeCategoria;
-        this.produtos = produtos;
+        this.imageUrl = imageUrl;
         this.restaurantes = restaurantes;
     }
 
@@ -51,19 +50,11 @@ public class CategoriaDTO {
         this.nomeCategoria = nomeCategoria;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public List<Restaurante> getRestaurantes() {
+    public List<RestauranteDTO> getRestaurantes() {
         return restaurantes;
     }
 
-    public void setRestaurantes(List<Restaurante> restaurantes) {
+    public void setRestaurantes(List<RestauranteDTO> restaurantes) {
         this.restaurantes = restaurantes;
     }
 }

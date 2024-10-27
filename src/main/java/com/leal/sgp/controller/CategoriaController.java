@@ -24,7 +24,7 @@ public class CategoriaController {
 
     @GetMapping
     public ResponseEntity<?> buscarTodas() {
-        List<Categoria> categorias = categoriaService.buscarTodas();
+        List<Categoria> categorias = categoriaService.ListarCategorias();
 
         /**
          * Verifica se a lista está vazia e retorna uma respota adequada.
@@ -37,9 +37,9 @@ public class CategoriaController {
     }
 
     @GetMapping("/{categoriaSeq}")
-    public ResponseEntity<?> buscarPorId(@PathVariable UUID categoriaSeq) {
+    public ResponseEntity<?> consultarCategoriaComSeq(@PathVariable UUID categoriaSeq) {
         try {
-            CategoriaDTO categoria = categoriaService.buscarPorId(categoriaSeq);
+            CategoriaDTO categoria = categoriaService.consultarCategoriaComSeq(categoriaSeq);
             return ResponseEntity.ok(categoria);
         } catch (NotFoundException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);

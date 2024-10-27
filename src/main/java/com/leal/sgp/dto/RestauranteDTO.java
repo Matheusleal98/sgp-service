@@ -19,14 +19,13 @@ public class RestauranteDTO {
     private List<Produto> produtos;
 
     public RestauranteDTO(UUID seq, String nome, String imageUrl, BigDecimal valorEntrega,
-                          Integer tempoEntregaMin, Double avaliacao, Categoria categoria, List<Produto> produtos){
+                          Integer tempoEntregaMin, Double avaliacao, List<Produto> produtos){
         this.seq = seq;
         this.nome = nome;
         this.imageUrl = imageUrl;
         this.valorEntrega = valorEntrega;
         this.tempoEntregaMin = tempoEntregaMin;
         this.avaliacao = avaliacao;
-        this.categoria = categoria;
         this.produtos = produtos;
     }
 
