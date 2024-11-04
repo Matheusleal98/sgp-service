@@ -1,7 +1,6 @@
 package com.leal.sgp.controller;
 
 import com.leal.sgp.dto.CategoriaDTO;
-import com.leal.sgp.entidades.Categoria;
 import com.leal.sgp.exception.NotFoundException;
 import com.leal.sgp.services.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +22,8 @@ public class CategoriaController {
     private CategoriaService categoriaService;
 
     @GetMapping
-    public ResponseEntity<?> buscarTodas() {
-        List<Categoria> categorias = categoriaService.ListarCategorias();
-
-        /**
-         * Verifica se a lista está vazia e retorna uma respota adequada.
-         */
-        if (categorias.isEmpty()) {
-            return new ResponseEntity<>("Nenhuma categoria encontrada.", HttpStatus.NOT_FOUND);
-        }
-
+    public ResponseEntity<?> listarCategorias() {
+        List<CategoriaDTO> categorias = categoriaService.ListarCategorias();
         return new ResponseEntity<>(categorias, HttpStatus.OK);
     }
 

@@ -1,7 +1,6 @@
 package com.leal.sgp.services;
 
 import com.leal.sgp.dto.CategoriaDTO;
-import com.leal.sgp.dto.RestauranteDTO;
 import com.leal.sgp.entidades.Categoria;
 import com.leal.sgp.entidades.Produto;
 import com.leal.sgp.entidades.Restaurante;
@@ -28,34 +27,39 @@ public class CategoriaService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public List<Categoria> ListarCategorias() {
-        return this.categoriaRepository.findAll();
+    public List<CategoriaDTO> ListarCategorias() {
+
+        List<Categoria> categorias = null;
+        categorias = this.categoriaRepository.findAll();
+
+        List<CategoriaDTO> categoriasDto = new ArrayList<>();
+
+        for (Categoria categoria : categorias) {
+             CategoriaDTO categoriaDTO = new CategoriaDTO(
+                     categoria.getSeq(),
+                     categoria.getNome(),
+                     categoria.getImagemUrl()
+             );
+
+            categoriasDto.add(categoriaDTO);
+        }
+
+        return categoriasDto;
     }
 
     public CategoriaDTO consultarCategoriaComSeq(UUID categoriaSeq) {
         Categoria categoria = categoriaRepository.findById(categoriaSeq)
                 .orElseThrow(() -> new NotFoundException("Categoria não encontrada."));
 
-        List<Restaurante> restaurantes = restauranteRepository.findByCategoriaSeq(categoriaSeq);
-        List<RestauranteDTO> restaurantesDTO = new ArrayList<>();
+        List<Restaurante> restaurantes = this.restauranteRepository.findByRestaurantesByCategoriaSeq(categoria.getSeq());
+        List<Produto> produtos = this.produtoRepository.findByProdutosByCategoria(categoria.getSeq());
 
-        for (Restaurante restaurante : restaurantes) {
-            List<Produto> produtos = produtoRepository.findByRestauranteSeqAndCategoriaSeq(restaurante.getSeq(), categoriaSeq);
-
-            RestauranteDTO restauranteDTO = new RestauranteDTO(
-                    restaurante.getSeq(),
-                    restaurante.getNome(),
-                    restaurante.getImagemUrl(),
-                    restaurante.getValorEntrega(),
-                    restaurante.getTempoEntregaMin(),
-                    restaurante.getAvaliacao(),
-                    produtos
-            );
-
-            restaurantesDTO.add(restauranteDTO);
-        }
-
-        return new CategoriaDTO(categoria.getSeq(), categoria.getNome(), categoria.getImagemUrl(), restaurantesDTO);
+        return new CategoriaDTO(
+                categoria.getSeq(),
+                categoria.getNome(),
+                categoria.getImagemUrl(),
+                restaurantes,
+                produtos);
     }
 }
 

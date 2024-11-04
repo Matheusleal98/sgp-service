@@ -8,53 +8,63 @@ import java.util.UUID;
 
 public class CategoriaDTO {
 
-    private UUID categoriaSeq;
-    private String nomeCategoria;
-    private String imageUrl;
-    private List<RestauranteDTO> restaurantes;
+    private UUID seq;
+    private String nome;
+    private String imagemUrl;
+    private List<Restaurante> restaurantes;
+    private List<Produto> produtos;
 
-    public CategoriaDTO(UUID categoriaSeq, String nomeCategoria, String imageUrl, List<RestauranteDTO> restaurantes) {
-        this.categoriaSeq = categoriaSeq;
-        this.nomeCategoria = nomeCategoria;
-        this.imageUrl = imageUrl;
+    public CategoriaDTO(UUID seq, String nome, String imagemUrl, List<Restaurante> restaurantes, List<Produto> produtos) {
+        this.seq = seq;
+        this.nome = nome;
+        this.imagemUrl = imagemUrl;
         this.restaurantes = restaurantes;
+        this.produtos = produtos;
     }
 
-    public CategoriaDTO(UUID categoriaSeq, String nomeCategoria, String imageUrl){
-        this.categoriaSeq = categoriaSeq;
-        this.nomeCategoria = nomeCategoria;
-        this.imageUrl = imageUrl;
+    public CategoriaDTO(UUID seq, String nome, String imagemUrl){
+        this.seq = seq;
+        this.nome = nome;
+        this.imagemUrl = imagemUrl;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public UUID getSeq() {
+        return seq;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setSeq(UUID seq) {
+        this.seq = seq;
     }
 
-    public UUID getCategoriaSeq() {
-        return categoriaSeq;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCategoriaSeq(UUID categoriaSeq) {
-        this.categoriaSeq = categoriaSeq;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getNomeCategoria() {
-        return nomeCategoria;
+    public String getImagemUrl() {
+        return imagemUrl;
     }
 
-    public void setNomeCategoria(String nomeCategoria) {
-        this.nomeCategoria = nomeCategoria;
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
-    public List<RestauranteDTO> getRestaurantes() {
+    public List<Restaurante> getRestaurantes() {
         return restaurantes;
     }
 
-    public void setRestaurantes(List<RestauranteDTO> restaurantes) {
+    public void setRestaurantes(List<Restaurante> restaurantes) {
         this.restaurantes = restaurantes;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 }

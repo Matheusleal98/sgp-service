@@ -1,7 +1,7 @@
 package com.leal.sgp.controller;
 
+import com.leal.sgp.dto.ProdutoDTO;
 import com.leal.sgp.dto.RestauranteDTO;
-import com.leal.sgp.entidades.Restaurante;
 import com.leal.sgp.exception.NotFoundException;
 import com.leal.sgp.services.RestauranteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +32,18 @@ public class RestauranteController {
         }
     }
 
-    @GetMapping()
-    public ResponseEntity<List<Restaurante>> listarRestauranteComAvaliacao() {
-        return (ResponseEntity<List<Restaurante>>) this.restauranteService.listarRestauranteComAvaliacao();
+    @GetMapping("/recomendado")
+    public ResponseEntity<?> listarRestaurantesRecomendado() {
+        List<RestauranteDTO> restaurantes = this.restauranteService.listarRestauranteComAvaliacao();
+
+        return ResponseEntity.ok(restaurantes);
+    }
+
+    @GetMapping("/{seq}/produtos")
+    public ResponseEntity<?> listarProdutosByRestaurante(@PathVariable UUID seq) {
+        List<ProdutoDTO> produtos = this.restauranteService.listarProdutosByRestaurante(seq);
+
+        return ResponseEntity.ok(produtos);
     }
 
 }

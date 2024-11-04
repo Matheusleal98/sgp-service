@@ -11,22 +11,32 @@ public class RestauranteDTO {
 
     private UUID seq;
     private String nome;
-    private String imageUrl;
+    private String imagemUrl;
     private BigDecimal valorEntrega;
     private Integer tempoEntregaMin;
     private Double avaliacao;
     private Categoria categoria;
     private List<Produto> produtos;
 
-    public RestauranteDTO(UUID seq, String nome, String imageUrl, BigDecimal valorEntrega,
+    public RestauranteDTO(UUID seq, String nome, String imagemUrl, BigDecimal valorEntrega,
                           Integer tempoEntregaMin, Double avaliacao, List<Produto> produtos){
         this.seq = seq;
         this.nome = nome;
-        this.imageUrl = imageUrl;
+        this.imagemUrl = imagemUrl;
         this.valorEntrega = valorEntrega;
         this.tempoEntregaMin = tempoEntregaMin;
         this.avaliacao = avaliacao;
         this.produtos = produtos;
+    }
+    
+    public RestauranteDTO(UUID seq, String nome, String imagemUrl, BigDecimal valorEntrega,
+                          Integer tempoEntregaMin, Double avaliacao) {
+        this.seq = seq;
+        this.nome = nome;
+        this.imagemUrl = imagemUrl;
+        this.valorEntrega = valorEntrega;
+        this.tempoEntregaMin = tempoEntregaMin;
+        this.avaliacao = avaliacao;
     }
 
     public UUID getSeq() {
@@ -45,12 +55,12 @@ public class RestauranteDTO {
         this.nome = nome;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImagemUrl() {
+        return imagemUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
     public BigDecimal getValorEntrega() {

@@ -14,6 +14,9 @@ public interface ProdutoRepository extends JpaRepository<Produto, UUID> {
     @Query("SELECT p FROM Produto p WHERE p.categoria.seq = :categoriaSeq")
     List<Produto> findByProdutosByCategoria(UUID categoriaSeq);
 
+    @Query("SELECT p FROM Produto p WHERE p.desconto > 0 ORDER BY p.desconto DESC")
+    List<Produto> findByProdutosWithDesconto();
+
     List<Produto> findByRestauranteSeqAndCategoriaSeq(UUID restauranteSeq, UUID categoriaSeq);
 
 }
